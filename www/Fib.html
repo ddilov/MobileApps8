@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+
+<style type="text/css">
+
+ button
+
+ {
+
+	border-width: 1px; 
+
+	border-color: #0000FF;
+
+ }
+
+ .text
+
+ {
+
+	 margin-top:5px;
+
+	 text-align: left; 
+
+	 text-indent: 5px;
+
+	 width:220px;
+
+ }
+
+  .results
+
+ {
+
+	background-color: #EEEEFF;
+
+	margin-top: 5px;
+
+	text-align:center;
+
+	width: 220px;
+
+}
+
+</style>
+
+
+
+<script type="text/javascript">
+
+ function displaySequence()
+
+ {
+
+ var str="";
+
+ var current = 1;
+
+ var next = 1;
+
+	 for(var i=0; i< 100; i++){
+
+	 	str += current + '<br />';
+
+	 	var temp = current;
+
+	 	current = next;
+
+	 	next += temp ;
+
+	 }
+
+   document.getElementById('resultsDiv').innerHTML = str;
+
+ }
+
+</script>
+
+</head>
+
+
+
+<body background="Rovel_55.jpg">
+<center>
+
+<font face="Comic Sans MS" size="5" color="#3399ff">Числа на Фибоначи</font><br>
+<font face="Comic Sans MS" size="2" color="#ff0000">
+Започва се с 1 и 1, а всеки следващ член на редицата се получава като сума на предходните два.<br>Първите няколко числа на Фибоначи са
+1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89,...
+</font><br>
+<input type="button" onclick="displaySequence()" value="Покажи първите 100 числа на Фибоначи" />
+
+<div id="resultsDiv" class="results">
+
+</div>
+</center>
+</body>
+
+
+
+</html>
+
+

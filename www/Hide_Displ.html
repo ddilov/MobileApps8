@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $("button").click(function(){
+    $("div").slideToggle();
+  });
+});
+</script>
+<style type="text/css">
+ button
+ {
+    border-width: 1px; 
+    border-color: #0000FF;
+ }
+ div
+ {
+     background-color: #EEEEFF; 
+     margin-top:5px;
+     border-style: dotted; 
+     border-width: 1px; 
+     text-align: left; 
+     text-indent: 5px;
+     width:220px;
+ }
+</style>
+</head>
+<body>
+<button>Click to hide/display content</button>
+<div>
+This is jquery animation example using slideToggle() function
+</div>
+</body>
+</html>

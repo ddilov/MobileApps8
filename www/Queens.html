@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+
+<style type="text/css">
+ button
+ {
+    border-width: 1px; 
+    border-color: #0000FF;
+ }
+ .text
+ {
+     margin-top:5px;
+     text-align: left; 
+     text-indent: 5px;
+ }
+  .results
+ {
+    background-color: #EEEEFF;
+    margin-top: 5px;
+    text-align:center;
+    width: 220px;
+ }
+</style>
+
+<script type="text/javascript">
+"use strict";
+function displayQueens() {
+    var N=parseInt(document.getElementById('textN').value,10),
+        time = (new Date()).getTime(),
+        count=0, column,
+        buffer = '';
+
+    function output() {
+       document.getElementById('resultsDiv').innerHTML=buffer;
+    }
+
+    function print(s) {
+        buffer+=s;
+    }
+
+    function println(s) {
+        buffer+=s+'<br/>';
+    }
+
+    var displayCount = function() {
+        count += 1;
+        println("Решение " + count);
+    };
+
+    var noConflict = function(k, l) {
+        return false;
+    };
+
+    function queen(i, j, otherConflicts, display) {
+        var col,
+            draw = function() {
+            var jj;
+
+            for (jj=1; jj<=j-1; jj++) { print("_|"); }
+            print("Q|");
+            for (jj=j+1; jj<=N; jj++) { print("_|"); }
+            println('');
+            display();
+        };
+
+        var conflict = function(k, l) {   
+            return (k===i) || (l===j) || (k+l===i+j) || (k-l===i-j) 
+                           || otherConflicts(k,l);
+        };
+
+        if (!otherConflicts(i,j)) {
+            if (i===N) {
+                draw();
+            }
+            else { for (col=1; col<=N; col++) {
+                       queen(i+1,col,conflict,draw);
+                   }
+                 }
+        }
+    }
+
+    for (column=1; column<=N; column++) {
+        queen(1,column,noConflict,displayCount);
+    }
+    println('Изпълнено за '+((new Date()).getTime()-time)+' ms');
+    output();
+ }
+</script>
+</head>
+
+<body background="Rovel_55.jpg">
+<center>
+<font face="Comic Sans MS" size="5" color="#3399ff">Осемте царици на смъртта</font><br>
+
+<font face="Comic Sans MS" size="2" color="#ff0000">
+<b>Постановка на задачата</b>:<br>
+Да се намери такова разположение на осем царици върху шахматна дъска,<br> че никоя от тях да не се намира на бито поле от останалите.
+</font><br>
+
+
+
+        <div>
+            N = <input type="text" id="textN" value="8" />
+        </div>
+<input type="button" onclick="displayQueens();" value="Покажи цариците" />
+<div id="resultsDiv" class="results">
+</div>
+</body>
+
+</html>

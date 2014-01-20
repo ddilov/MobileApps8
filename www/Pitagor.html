@@ -1,0 +1,31 @@
+<html>
+    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+
+        <script type="text/javascript">
+            function valuechanged(){
+                var x = document.getElementById('textX').value;
+                var y = document.getElementById('textY').value;
+                document.getElementById('labelR').innerHTML = Math.sqrt(x*x+y*y);
+            }
+            </script>
+    </head>
+<body background="Rovel_55.jpg">
+<center>
+
+<font face="Comic Sans MS" size="5" color="#3399ff">Питагорова теорема</font><br>
+<img src="pitagor.png" border ="0"><br>
+<font face="Comic Sans MS" size="2" color="#ff0000">
+където <font size=+1>c</font> е дължината на хипотенузата (страната срещу правия ъгъл на триъгълника),<br> а <font size=+1>a</font> и <font size=+1>b</font> са дължините на двата катета (страните, образуващи правия ъгъл).</font><br>
+
+        <div>
+            <font size=+1>a</font> = <input type="text" ID="textX" value="3" onchange="valuechanged();" />
+        </div>
+        <div>
+            <font size=+1>b</font> = <input type="text" ID="textY" value="4" onchange="valuechanged();" />
+        </div>
+        <div>
+            <font size=+1>c</font> =  <label ID="labelR">5</label>
+        </div>
+    </body>
+</html>
